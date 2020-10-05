@@ -22,9 +22,9 @@ export const BerryProcess = {
     const hostname = OS.hostname();
 
     const Instance = {
-      instance: hostname,
       sessionID: UUID.v4(),
       name: configs.name || hostname,
+      instance: hostname,
       timespace: configs.timespace || -1,
       status: Status.Initial as "initial" | "active" | "idle",
       idleLevel: 0,
@@ -82,6 +82,8 @@ export const BerryProcess = {
         skillnames: Object.keys(Instance.skillsmap),
         status: Instance.status,
         idleLevel: Instance.idleLevel,
+        activatedTaskID: Instance.activatedTaskID,
+        millisecond: Instance.millisecond(),
       }),
       skill: (skill) => {
         Instance.skillsmap[skill.name] = skill;
