@@ -1,6 +1,6 @@
 {
   "name": "clusberry-core",
-  "version": "0.0.3-y.0",
+  "version": "0.1.0",
   "description": "cluster",
   "private": false,
   "main": "./lib/index.js",
