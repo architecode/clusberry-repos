@@ -21,6 +21,8 @@ export const Clusberry = {
       },
       cluster: (cluster: ICluster) => {
         Instance.join(cluster);
+
+        return Instance;
       },
     };
 

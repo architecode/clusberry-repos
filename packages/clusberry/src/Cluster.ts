@@ -10,6 +10,8 @@ export const Cluster = {
     Tasks: ITasksRepository;
   }): ICluster => ({
     register: async (berry) => {
+      // tslint:disable-next-line: no-console
+      console.log("CLUSBERRY REGISTER: ", berry.sessionID);
       await Repositories.Berries.register({
         sessionID: berry.sessionID,
         name: berry.name,
