@@ -59,9 +59,13 @@ export const BerryProcess = {
         Instance.status = "active";
         Instance.activatedTaskID = taskID;
         Instance.idleLevel = 0;
+        // tslint:disable-next-line: no-console
+        console.log(`${new Date()} [CLUSBERRY: ${Instance.sessionID}] - state: activate - Task ID: ${Instance.activatedTaskID}`);
       },
       // tslint:disable-next-line: no-empty
       wait: () => {
+        // tslint:disable-next-line: no-console
+        console.log(`${new Date()} [CLUSBERRY: ${Instance.sessionID}] - state: await - Task ID: ${Instance.activatedTaskID}`);
       },
       idle: () => {
         Instance.status = "idle";
@@ -69,6 +73,9 @@ export const BerryProcess = {
         if (Instance.idleLevel !== 5) {
           Instance.idleLevel++;
         }
+
+        // tslint:disable-next-line: no-console
+        console.log(`${new Date()} [CLUSBERRY: ${Instance.sessionID}] - state: idle - level: ${Instance.idleLevel}`);
       },
     };
 
