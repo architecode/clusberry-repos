@@ -1,6 +1,6 @@
 {
   "name": "clusberry-mongo",
-  "version": "0.1.0",
+  "version": "0.2.0-alpha.0",
   "description": "cluster",
   "private": false,
   "main": "./lib/index.js",
@@ -33,7 +33,7 @@
   "license": "MIT",
   "repository": "git+https://github.com/",
   "dependencies": {
-    "clusberry-core": "^0.1.0",
+    "clusberry-core": "^0.2.0-alpha.0",
     "uuid": "8.3.0"
   },
   "devDependencies": {
