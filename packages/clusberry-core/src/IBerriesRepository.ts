@@ -11,6 +11,6 @@ export interface IBerriesRepository {
   }) => Promise<void>;
   extendTTL: (props: {
     sessionID: string;
-    ttl: number;
+    ttl?: number;
   }) => Promise<number>;
 }

@@ -18,7 +18,7 @@ export interface ICluster {
   }) => Promise<void>;
   extendTTL: (props: {
     sessionID: string;
-    ttl: number;
+    ttl?: number;
   }) => Promise<number>;
   defineTask: (task: {
     skillname: string;

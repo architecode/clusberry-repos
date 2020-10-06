@@ -141,6 +141,7 @@ export const BerryProcess = {
                 const isPrimary = (task.berries.queue.length === 0) || (task.berries.queue[0] === Instance.sessionID);
 
                 if (isPrimary) {
+                  Cluster.extendTTL({ sessionID: Instance.sessionID });
                   const initial = Date.now();
                   const putInQueue = task.berries.queue.indexOf(Instance.sessionID) === -1;
                   await Cluster.activateLoop(task.taskID, Instance.sessionID, putInQueue);
