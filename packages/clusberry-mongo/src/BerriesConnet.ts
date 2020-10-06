@@ -8,7 +8,7 @@ export const BerriesConnect = {
     const TTL = 60 * 60 * 1000;
     const { DB } = configs;
 
-    const getTTL = () => new Date(Date.now() + TTL);
+    const getTTL = (ttl?: number) => new Date(Date.now() + (ttl || TTL));
 
     let _Collection: Collection;
 
@@ -29,8 +29,7 @@ export const BerriesConnect = {
       register: async (berry) => {
         const expiresAt = getTTL();
         const collection = await resolveCollection();
-
-        await collection.insertOne({
+        const item = {
           _id: berry.sessionID,
           instance: berry.instance,
           name: berry.name,
@@ -38,7 +37,11 @@ export const BerriesConnect = {
           skillnames: berry.skillnames,
           activatedTaskID: null,
           expiresAt,
-        });
+        };
+
+        await collection.insertOne(item);
+
+        return item;
       },
       activateTask: async (props) => {
         const collection = await resolveCollection();
@@ -51,6 +54,21 @@ export const BerriesConnect = {
         await collection.findOneAndUpdate({
           _id: props.sessionID,
         }, update);
+      },
+      extendTTL: async (props) => {
+        const collection = await resolveCollection();
+        const expiresAt = getTTL(props.ttl);
+        const update = {
+          $set: {
+            expiresAt,
+          },
+        };
+
+        await collection.findOneAndUpdate({
+          _id: props.sessionID,
+        }, update);
+
+        return expiresAt.getTime();
       },
     };
   },

@@ -4,9 +4,13 @@ export interface IBerriesRepository {
     name: string;
     instance: string;
     skillnames: string[];
-  }) => Promise<void>;
+  }) => Promise<any>;
   activateTask: (props: {
     sessionID: string;
     taskID: string;
   }) => Promise<void>;
+  extendTTL: (props: {
+    sessionID: string;
+    ttl: number;
+  }) => Promise<number>;
 }

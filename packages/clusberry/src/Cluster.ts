@@ -21,6 +21,8 @@ export const Cluster = {
     },
     activateTask: async (props) =>
       await Repositories.Berries.activateTask(props),
+    extendTTL: async (props) =>
+      await Repositories.Berries.extendTTL(props),
     defineTask: async (task) =>
       await Repositories.Tasks.defineTask({
         skillname: task.skillname,

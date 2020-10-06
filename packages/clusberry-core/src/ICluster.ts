@@ -11,11 +11,15 @@ export interface ICluster {
     name: string;
     instance: string;
     skillnames: string[];
-  }) => Promise<void>;
+  }) => Promise<any>;
   activateTask: (props: {
     taskID: string;
     sessionID: string;
   }) => Promise<void>;
+  extendTTL: (props: {
+    sessionID: string;
+    ttl: number;
+  }) => Promise<number>;
   defineTask: (task: {
     skillname: string;
     berriesLimit?: number;
