@@ -1,6 +1,6 @@
 {
   "name": "clusberry",
-  "version": "0.2.0-alpha.4",
+  "version": "0.2.0-alpha.5",
   "description": "cluster",
   "private": false,
   "main": "./lib/index.js",
@@ -33,7 +33,7 @@
   "license": "MIT",
   "repository": "git+https://github.com/architecode/clusberry-repos",
   "dependencies": {
-    "clusberry-core": "^0.2.0-alpha.4",
+    "clusberry-core": "^0.2.0-alpha.5",
     "uuid": "8.3.0"
   },
   "devDependencies": {
